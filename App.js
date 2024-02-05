@@ -6,26 +6,24 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
 import Home from "./screens/Home";
-import PorscheModel from "./screens/Porsche911Turbo";
 import Porsche911Turbo from "./screens/Porsche911Turbo";
 import Porsche911GT3 from "./screens/Porsche911GT3";
-import { Image } from "react-native";
+import { Image, StatusBar } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <Image source={test} /> */}
-
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={Home}
           options={{
-            title: "Home",
+            title: "Porsche models",
           }}
         />
+
         <Stack.Screen
           name="Porsche911Turbo"
           component={Porsche911Turbo}
@@ -42,6 +40,7 @@ export default function App() {
           }}
         />
       </Stack.Navigator>
+      <StatusBar />
     </NavigationContainer>
   );
 }

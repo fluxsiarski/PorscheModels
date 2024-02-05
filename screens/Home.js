@@ -5,8 +5,11 @@ import { useNavigation } from "@react-navigation/native";
 
 import { generalPhotoDimensions } from "../styles/generalPhotoDimensions";
 
+import PorscheTab from "../components/PorscheTab";
+
 const Turbo911 = require("../assets/images/911Turbo.jpg");
 const GT3911 = require("../assets/images/911GT3.jpeg");
+const TurboS911 = require("../assets/images/911TurboS.jpeg");
 
 const Home = () => {
   const navigation = useNavigation();
@@ -14,47 +17,28 @@ const Home = () => {
   return (
     <ScrollView>
       <View style={s.homeContainer}>
-        <View style={s.imageButtonContainer}>
-          <Image source={GT3911} style={generalPhotoDimensions.dimensions} />
-          <Button
-            title="Porsche 911 GT3"
-            onPress={() => navigation.navigate("Porsche911GT3")}
-          />
-        </View>
-
         {/* ------------Testing flex layout---------- */}
 
-        <View style={s.GT3911}>
-          <Image source={GT3911} style={generalPhotoDimensions.dimensions} />
-          <Button
-            title="Porsche 911 GT3"
-            onPress={() => navigation.navigate("Porsche911GT3")}
-          />
-        </View>
+        <PorscheTab
+          image={Turbo911}
+          onPress={() => navigation.navigate("Porsche911GT3")}
+          style={generalPhotoDimensions.dimensions}
+          title="gt3"
+        />
 
-        <View style={s.GT3911}>
-          <Image source={GT3911} style={generalPhotoDimensions.dimensions} />
-          <Button
-            title="Porsche 911 GT3"
-            onPress={() => navigation.navigate("Porsche911GT3")}
-          />
-        </View>
+        <PorscheTab
+          image={GT3911}
+          title="GT3"
+          onPress={() => navigation.navigate("Porsche911GT3")}
+          style={generalPhotoDimensions.dimensions}
+        />
 
-        <View style={s.GT3911}>
-          <Image source={GT3911} style={generalPhotoDimensions.dimensions} />
-          <Button
-            title="Porsche 911 GT3"
-            onPress={() => navigation.navigate("Porsche911GT3")}
-          />
-        </View>
-
-        <View style={s.GT3911}>
-          <Image source={GT3911} style={generalPhotoDimensions.dimensions} />
-          <Button
-            title="Porsche 911 GT3"
-            onPress={() => navigation.navigate("Porsche911GT3")}
-          />
-        </View>
+        <PorscheTab
+          image={TurboS911}
+          title="GT3"
+          onPress={() => navigation.navigate("Porsche911GT3")}
+          style={generalPhotoDimensions.dimensions}
+        />
       </View>
     </ScrollView>
   );
@@ -64,28 +48,12 @@ export default Home;
 
 const s = StyleSheet.create({
   homeContainer: {
-    // flex: 1,
-    // justifyContent: "center",
-    // alignItems: "center",
-    marginHorizontal: 20,
+    flex: 1,
     // flexWrap: "wrap",
-  },
-
-  // Turbo911: {
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   // padding: 20,
-  // },
-
-  GT3911: {
-    justifyContent: "center",
+    // flexDirection: "row",
+    // justifyContent: "center",
     alignItems: "center",
-    // padding: 20,
-  },
-
-  imageButtonContainer: {
-    flexDirection: "row", // Align children horizontally
-    justifyContent: "space-between", // Add space between Image and Button
-    alignItems: "center", // Center children vertically
+    // marginTop: 20,
+    // backgroundColor: "red",
   },
 });

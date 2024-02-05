@@ -2,6 +2,8 @@
 
 npm install expo-splash-screen
 npm install expo-font
+npx expo install expo-av
+npx expo install react-native-web react-dom @expo/metro-runtime
 
 # Navigation
 
